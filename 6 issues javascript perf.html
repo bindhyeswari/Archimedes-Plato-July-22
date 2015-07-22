@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        function isPrime(num) {
+            // return whether the number is prime or not
+            for (var i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function generatePrimes(number_of_primes) {
+            // generate n primes
+            var primes = [];
+            var num = 2;
+            while(primes.length < number_of_primes) {
+                if (isPrime(num)) primes.push(num);
+                num++;
+            }
+            return primes;
+        }
+
+        var n = 1000000;
+        var start = new Date();
+        var arr = generatePrimes(n);
+        console.log('it took ', (new Date() - start), 'ms to generate ', n, ' primes.'); // should print 100 primes
+
+
+    </script>
+</head>
+<body>
+    <input type="text"/>
+</body>
+</html>

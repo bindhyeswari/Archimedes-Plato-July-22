@@ -35,6 +35,35 @@
                 document.querySelector('#key_value').innerHTML =
                         localStorage.getItem(fa.key.value); // save them to localstorage
             });
+
+            document.querySelector('#btn_list_all_keys').addEventListener('click', function () {
+                var ul = document.querySelector('#all_keys');
+                ul.innerHTML = '';
+                for (var i = 0; i < localStorage.length; i++) {
+                    var key = localStorage.key(i);
+                    createElement('li', ul, '', key + ' : ' + localStorage.getItem(key));
+                }
+            });
+
+            document.querySelector('#btn_delete_all_keys').addEventListener('click', function () {
+                localStorage.clear();
+            });
+
+            function createElement(elementType, parent, className, innerHTML, custom) {
+                var element = document.createElement(elementType);
+                if (parent) parent.appendChild(element);
+                if (className) element.className = className;
+                if (innerHTML) element.innerHTML = innerHTML;
+
+                if (typeof custom !== 'undefined') {
+                    for (var prop in custom) {
+                        element.setAttribute(prop, custom[prop]);
+                    }
+                }
+
+                return element;
+            }
+
         });
     </script>
 </head>
@@ -61,6 +90,17 @@
     </form>
     <div id="key_value"></div>
 </section>
+
+<section>
+    <header><h1>List of All Keys</h1></header>
+    <button id="btn_list_all_keys">List All Keys</button>
+    <button id="btn_delete_all_keys">Delete All Keys</button>
+    <ul id="all_keys">
+
+    </ul>
+</section>
+
+
 
 </body>
 </html>

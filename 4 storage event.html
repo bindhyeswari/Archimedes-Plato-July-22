@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="base.css"/>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // update the localstorage based on what the user is typing in ...
+            var inp = document.querySelector('input');
+            inp.addEventListener('keypress', function (event) {
+                console.log(this.value + String.fromCharCode(event.charCode));
+                localStorage.setItem('inp', this.value + String.fromCharCode(event.charCode));
+            });
+
+            // listen in to storage events and update data on other pages
+            window.addEventListener('storage', function () {
+                inp.value = localStorage.getItem('inp');
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+<section>
+    <header>
+        <h1>Synchronized Data</h1>
+    </header>
+    <input type="text"/>
+</section>
+
+</body>
+</html>
