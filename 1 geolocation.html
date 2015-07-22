@@ -5,14 +5,14 @@
     <title>Document</title>
     <script>
 
-        navigator.geolocation.getCurrentPosition(function () {
+        navigator.geolocation.getCurrentPosition(function (position) {
             // callback is invoked upon successful completion of the positon request
+            console.log(position);
         }, function () {
             // callback is invoked upon if an error is encountered
 
         }, {
-            // options object
-
+            // options object --> enableHighAccuracy, timeout, maximumAge
         });
 
     </script>
