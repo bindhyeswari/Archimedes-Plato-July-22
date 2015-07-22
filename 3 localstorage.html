@@ -13,6 +13,29 @@
         localStorage.getItem('name');
         localStorage.setItem('o', JSON.stringify(o));
 
+
+
+    </script>
+    <link rel="stylesheet" href="base.css"/>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var fw = document.forms['writekeys']; // document.forms[0]
+            var fa = document.forms['accessvalue'];
+            console.log(fa, fw);
+
+            fw.addEventListener('submit', function (event) {
+                event.preventDefault();
+                console.log(fw.key.value, fw.val.value); // list key and values here ...
+                localStorage.setItem(fw.key.value, fw.val.value); // save them to localstorage
+            });
+
+            fa.addEventListener('submit', function (event) {
+                event.preventDefault();
+                console.log(fa.key.value); // list key here ...
+                document.querySelector('#key_value').innerHTML =
+                        localStorage.getItem(fa.key.value); // save them to localstorage
+            });
+        });
     </script>
 </head>
 <body>
@@ -21,21 +44,22 @@
     <header>
         <h1>Create a Key / Overwrite a Key</h1>
     </header>
-    <div>
+    <form name="writekeys">
         <input type="text" name="key"/>
         <input type="text" name="val"/>
-        <button>Save</button>
-    </div>
+        <button id="save">Save</button>
+    </form>
 </section>
 
 <section>
     <header>
         <h1>Access the value of a key</h1>
     </header>
-    <div>
+    <form name="accessvalue">
         <input type="text" name="key"/>
-        <button>Get Value</button>
-    </div>
+        <button name="get_value">Get Value</button>
+    </form>
+    <div id="key_value"></div>
 </section>
 
 </body>
