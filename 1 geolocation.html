@@ -5,16 +5,25 @@
     <title>Document</title>
     <script>
 
-        navigator.geolocation.getCurrentPosition(function (position) {
-            // callback is invoked upon successful completion of the positon request
-            console.log(position);
-            console.log(position.coords.latitude, position.coords.longitude);
-        }, function () {
-            // callback is invoked upon if an error is encountered
+        function getCurrent() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                // callback is invoked upon successful completion of the positon request
+                console.log(position);
+                console.log(position.coords.latitude, position.coords.longitude);
+            }, function () {
+                // callback is invoked upon if an error is encountered
 
-        }, {
-            // options object --> enableHighAccuracy, timeout, maximumAge
+            }, {
+                // options object --> enableHighAccuracy, timeout, maximumAge
+            });
+        }
+
+        var watchid = navigator.geolocation.watchPosition(function (position) {
+            console.log(position);
         });
+
+        // navigator.geolocation.clearWatch(watchid); // clear the watch
+
 
     </script>
 </head>

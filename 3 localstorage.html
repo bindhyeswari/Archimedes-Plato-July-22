@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        // origin --> protocol, subdomain, domain, port
+
+        var o = {
+            name: 'Natalie'
+        };
+        localStorage.getItem('name');
+        localStorage.setItem('o', JSON.stringify(o));
+
+    </script>
+</head>
+<body>
+
+<section>
+    <header>
+        <h1>Create a Key / Overwrite a Key</h1>
+    </header>
+    <div>
+        <input type="text" name="key"/>
+        <input type="text" name="val"/>
+        <button>Save</button>
+    </div>
+</section>
+
+<section>
+    <header>
+        <h1>Access the value of a key</h1>
+    </header>
+    <div>
+        <input type="text" name="key"/>
+        <button>Get Value</button>
+    </div>
+</section>
+
+</body>
+</html>
