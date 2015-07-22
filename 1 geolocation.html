@@ -8,6 +8,7 @@
         navigator.geolocation.getCurrentPosition(function (position) {
             // callback is invoked upon successful completion of the positon request
             console.log(position);
+            console.log(position.coords.latitude, position.coords.longitude);
         }, function () {
             // callback is invoked upon if an error is encountered
 
